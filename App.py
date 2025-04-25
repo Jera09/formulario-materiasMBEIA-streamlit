@@ -252,7 +252,7 @@ with st.form("registro_form"):
             if st.checkbox(f"{materia['materia']} (Créditos: {materia['créditos']})"):
                 opciones_seleccionadas.append(materia["materia"])
     
-    submitted = st.form_submit_button("Guardar Registro")
+    submitted = st.form_submit_button("Enviar Registro")
 
     if submitted:
         # Validaciones
