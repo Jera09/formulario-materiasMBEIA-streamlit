@@ -234,18 +234,19 @@ with st.form("registro_form"):
     
     # Selección de materias
     st.header("Selección de Materias")
-    st.write("### Programa: Big data e Inteligencia artificial")
-    st.write("### Consideraciones para el llenado del formulario:")
+    st.write("## Programa: Big data e Inteligencia artificial")
+    st.write("## Consideraciones para el llenado del formulario:")
     st.write("""
-    - Debes seleccionar al menos 2 materias del área de Ciencia de datos e Inteligencia Artificial
-    - Recuerda seleccionar un máximo de 9 materias (58 créditos)
-    - Las materias obligatorias ya se encuentran precargadas (4 materias, 27 créditos)
-    - [Enlace para consulta de contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+    #### - Debes seleccionar al menos 2 materias del área de Ciencia de datos e Inteligencia Artificial
+    #### - Recuerda seleccionar un máximo de 9 materias (58 créditos)
+    #### - Las materias obligatorias ya se encuentran precargadas (4 materias, 27 créditos)
+    #### - [Enlace para consulta de contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
     """)
 
     opciones_seleccionadas = []
     
     for area, materias in areas_competencias.items():
+        st.markdown("---")
         st.subheader(area)
         for materia in materias:
             if st.checkbox(f"{materia['materia']} (Créditos: {materia['créditos']})"):
