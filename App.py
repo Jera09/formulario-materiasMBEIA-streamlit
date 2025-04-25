@@ -38,6 +38,10 @@ def setup_gsheets():
         creds = Credentials.from_service_account_info(creds_dict, scopes=scope)
         client = gspread.authorize(creds)
         return client
+        
+    except Exception as e:  # ¡Este bloque except faltaba!
+        st.error(f"Error de conexión: {str(e)}")
+        return None
 
 def save_to_gsheets(data_rows):
     try:
@@ -50,7 +54,7 @@ def save_to_gsheets(data_rows):
         try:
             worksheet = spreadsheet.worksheet("Registros")
         except gspread.exceptions.WorksheetNotFound:
-            worksheet = spreadsheet.add_worksheet(title="Registros", rows=1000, cols=12)
+            worksheet = spreadsheet.add_worksheet(title="Registros", rows=10000, cols=12)
             # Encabezados actualizados según tu ejemplo de Excel
             worksheet.append_row([
                 "Programa", "ID", "Nombre", "Materia", 
