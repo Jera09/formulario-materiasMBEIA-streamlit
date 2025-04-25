@@ -1,0 +1,13 @@
+# Credenciales y secretos
+credentials.json
+*.key
+*.pem
+.env
+secrets.toml
+
+# Cache y archivos generados
+__pycache__/
+*.py[cod]
+*.so
+.Python
+
