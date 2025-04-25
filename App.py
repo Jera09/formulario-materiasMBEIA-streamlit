@@ -21,61 +21,81 @@ def setup_gsheets():
         "https://www.googleapis.com/auth/drive"
     ]
     try:
-        # Opción 1: Usar variables de entorno (para Render)
-        if os.getenv("PRIVATE_KEY"):
-            creds_dict = {
-                "type": os.getenv("TYPE"),
-                "project_id": os.getenv("PROJECT_ID"),
-                "private_key_id": os.getenv("PRIVATE_KEY_ID"),
-                "private_key": os.getenv("PRIVATE_KEY").replace('\\n', '\n'),
-                "client_email": os.getenv("CLIENT_EMAIL"),
-                "client_id": os.getenv("CLIENT_ID"),
-                "auth_uri": os.getenv("AUTH_URI"),
-                "token_uri": os.getenv("TOKEN_URI"),
-                "auth_provider_x509_cert_url": os.getenv("AUTH_PROVIDER_X509_CERT_URL"),
-                "client_x509_cert_url": os.getenv("CLIENT_X509_CERT_URL"),
-                "universe_domain": os.getenv("UNIVERSE_DOMAIN")
-            }
-            creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scopes=scope)
-        # Opción 2: Usar archivo credentials.json (para desarrollo local)
-        elif os.path.exists("credentials.json"):
-            creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scopes=scope)
-        else:
-            raise Exception("No se encontraron credenciales configuradas")
-            
+        # Ruta donde Render coloca los secret files
+        creds_path = '/etc/secrets/credentials.json'
+        
+        # Verifica si el archivo existe en la ruta de Render
+        if not os.path.exists(creds_path):
+            # Si no está ahí, verifica en el directorio local (para desarrollo)
+            creds_path = 'credentials.json'
+            if not os.path.exists(creds_path):
+                st.error("No se encontró el archivo credentials.json")
+                return None
+        
+        # Carga las credenciales desde el archivo
+        creds = ServiceAccountCredentials.from_json_keyfile_name(creds_path, scopes=scope)
         client = gspread.authorize(creds)
+        
+        # Verificación adicional de conexión
+        try:
+            client.list_spreadsheet_files()  # Test simple de conexión
+        except Exception as test_error:
+            st.error(f"Error al verificar conexión con Google Sheets: {str(test_error)}")
+            return None
+            
         return client
         
     except Exception as e:
-        st.error(f"Error de conexión: {str(e)}")
+        st.error(f"Error al cargar credenciales: {str(e)}")
         return None
 
 def save_to_gsheets(data_rows):
     try:
         client = setup_gsheets()
         if not client:
+            st.error("No se pudo establecer conexión con Google Sheets")
             return False
         
-        spreadsheet = client.open("Registro_Materias_Maestria")
+        spreadsheet_name = "Registro_Materias_Maestria"
+        worksheet_name = "Registros"
         
         try:
-            worksheet = spreadsheet.worksheet("Registros")
-        except gspread.exceptions.WorksheetNotFound:
-            worksheet = spreadsheet.add_worksheet(title="Registros", rows=10000, cols=12)
-            # Encabezados actualizados según tu ejemplo de Excel
-            worksheet.append_row([
-                "Programa", "ID", "Nombre", "Materia", 
-                "Créditos", "Curso", "Clave", "Nombre de la Materia",
-                "Timestamp", "Teléfono", "Correo", "Género"
-            ])
+            spreadsheet = client.open(spreadsheet_name)
+        except gspread.SpreadsheetNotFound:
+            st.error(f"No se encontró la hoja de cálculo: {spreadsheet_name}")
+            return False
         
-        # Insertar todas las filas (una por materia)
+        try:
+            worksheet = spreadsheet.worksheet(worksheet_name)
+        except gspread.WorksheetNotFound:
+            try:
+                worksheet = spreadsheet.add_worksheet(
+                    title=worksheet_name, 
+                    rows=10000, 
+                    cols=12
+                )
+                # Encabezados
+                worksheet.append_row([
+                    "Programa", "ID", "Nombre", "Materia", 
+                    "Créditos", "Curso", "Clave", "Nombre de la Materia",
+                    "Timestamp", "Teléfono", "Correo", "Género"
+                ])
+            except Exception as e:
+                st.error(f"Error al crear nueva hoja: {str(e)}")
+                return False
+        
+        # Insertar datos
         for row in data_rows:
-            worksheet.append_row(row)
+            try:
+                worksheet.append_row(row)
+            except Exception as e:
+                st.error(f"Error al insertar fila: {str(e)}")
+                continue  # Continúa con la siguiente fila
         
         return True
+        
     except Exception as e:
-        st.error(f"Error al guardar: {str(e)}")
+        st.error(f"Error inesperado: {str(e)}")
         return False
 
 # Áreas de competencia y materias
