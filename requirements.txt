@@ -3,3 +3,4 @@ gspread==6.2.0
 google-auth==2.39.0
 python-dotenv==1.1.0
 pandas==2.2.3  # Si usas manipulación de datos
+oauth2client==4.1.3
