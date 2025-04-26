@@ -1,8 +1,15 @@
 import streamlit as st
 import gspread
-import os
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+import pandas as pd
+from io import BytesIO
+
+if 'download_data' not in st.session_state:
+    st.session_state.download_data = None
+
+if 'download_data' not in st.session_state:
+    st.session_state.download_data = None
 
 # Configuración inicial
 st.set_page_config(
@@ -21,81 +28,39 @@ def setup_gsheets():
         "https://www.googleapis.com/auth/drive"
     ]
     try:
-        # Ruta donde Render coloca los secret files
-        creds_path = '/etc/secrets/credentials.json'
-        
-        # Verifica si el archivo existe en la ruta de Render
-        if not os.path.exists(creds_path):
-            # Si no está ahí, verifica en el directorio local (para desarrollo)
-            creds_path = 'credentials.json'
-            if not os.path.exists(creds_path):
-                st.error("No se encontró el archivo credentials.json")
-                return None
-        
-        # Carga las credenciales desde el archivo
-        creds = ServiceAccountCredentials.from_json_keyfile_name(creds_path, scopes=scope)
+        creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
         client = gspread.authorize(creds)
-        
-        # Verificación adicional de conexión
-        try:
-            client.list_spreadsheet_files()  # Test simple de conexión
-        except Exception as test_error:
-            st.error(f"Error al verificar conexión con Google Sheets: {str(test_error)}")
-            return None
-            
         return client
-        
     except Exception as e:
-        st.error(f"Error al cargar credenciales: {str(e)}")
+        st.error(f"Error de conexión: {str(e)}")
         return None
 
 def save_to_gsheets(data_rows):
     try:
         client = setup_gsheets()
         if not client:
-            st.error("No se pudo establecer conexión con Google Sheets")
             return False
         
-        spreadsheet_name = "Registro_Materias_Maestria"
-        worksheet_name = "Registros"
+        spreadsheet = client.open("Registro_Materias_Maestria")
         
         try:
-            spreadsheet = client.open(spreadsheet_name)
-        except gspread.SpreadsheetNotFound:
-            st.error(f"No se encontró la hoja de cálculo: {spreadsheet_name}")
-            return False
+            worksheet = spreadsheet.worksheet("Registros")
+        except gspread.exceptions.WorksheetNotFound:
+            worksheet = spreadsheet.add_worksheet(title="Registros", rows=1000, cols=12)
+            # Encabezados actualizados según tu ejemplo de Excel
+            worksheet.append_row([
+                "Programa", "ID", "Nombre", "Materia", 
+                "Créditos", "Curso", "Clave", "Nombre de la Materia",
+                "Timestamp", "Teléfono", "Correo", "Género"
+            ])
         
-        try:
-            worksheet = spreadsheet.worksheet(worksheet_name)
-        except gspread.WorksheetNotFound:
-            try:
-                worksheet = spreadsheet.add_worksheet(
-                    title=worksheet_name, 
-                    rows=10000, 
-                    cols=12
-                )
-                # Encabezados
-                worksheet.append_row([
-                    "Programa", "ID", "Nombre", "Materia", 
-                    "Créditos", "Curso", "Clave", "Nombre de la Materia",
-                    "Timestamp", "Teléfono", "Correo", "Género"
-                ])
-            except Exception as e:
-                st.error(f"Error al crear nueva hoja: {str(e)}")
-                return False
-        
-        # Insertar datos
+        # Insertar todas las filas (una por materia)
         for row in data_rows:
-            try:
-                worksheet.append_row(row)
-            except Exception as e:
-                st.error(f"Error al insertar fila: {str(e)}")
-                continue  # Continúa con la siguiente fila
+            worksheet.append_row(row)
         
         return True
-        
     except Exception as e:
-        st.error(f"Error inesperado: {str(e)}")
+        st.error(f"Error al guardar: {str(e)}")
         return False
 
 # Áreas de competencia y materias
@@ -233,15 +198,18 @@ with st.form("registro_form"):
     genero = st.radio("Género:", ["Masculino", "Femenino", "Otro", "Prefiero no decir"])
     
     # Selección de materias
-    st.header("Selección de Materias")
+    st.header("Selección de Materias:")
     st.write("## Programa: Big data e Inteligencia artificial")
+    st.write("")
     st.write("## Consideraciones para el llenado del formulario:")
-    st.write("""
+    st.write(""" 
     #### - Debes seleccionar al menos 2 materias del área de Ciencia de datos e Inteligencia Artificial
     #### - Recuerda seleccionar un máximo de 9 materias (58 créditos)
     #### - Las materias obligatorias ya se encuentran precargadas (4 materias, 27 créditos)
-    #### - [Enlace para consulta de contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+    #### - [Enlace para consulta de contenido de cada materia](https://google.com)
     """)
+    st.write("")
+    st.write("")
 
     opciones_seleccionadas = []
     
@@ -277,16 +245,19 @@ with st.form("registro_form"):
             else:
                 # Validar número máximo de materias (9) y créditos (85)
                 total_materias = len(materias_con_obligatorias)
+                total_materias2 = total_materias - 4
                 creditos_totales = calcular_creditos_totales(materias_con_obligatorias)
                 
                 if total_materias > 13:
-                    st.error(f"Has seleccionado {total_materias} materias. El máximo permitido es 9.")
+                    st.error(f"Has seleccionado {total_materias2} materias. El máximo permitido es 9.")
                 elif creditos_totales > 85:
                     st.error(f"Total de créditos: {creditos_totales}. El límite permitido es 85 créditos.")
+                elif creditos_totales < 76:
+                    st.error(f"Total de créditos: {creditos_totales}. El mínimo permitido es 76 créditos.")
                 else:
                     # Preparar filas para Google Sheets (una por materia)
                     rows_to_save = []
-                    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    timestamp = datetime.now().strftime("%Y-%m-%d")
                     programa = "Big data e Inteligencia Artificial"
                     
                     for materia_nombre in materias_con_obligatorias:
@@ -312,5 +283,30 @@ with st.form("registro_form"):
                     if save_to_gsheets(rows_to_save):
                         st.success(f"¡Registro exitoso! Se guardaron {len(rows_to_save)} materias.")
                         st.info(f"Total de créditos: {creditos_totales}")
+                        # Almacenar datos y activar bandera para mostrar el botón
+                        st.session_state.download_data = rows_to_save
+                        st.session_state.show_download = True
                     else:
                         st.error("Error al guardar en la base de datos. Por favor, intente nuevamente.")
+
+# Fuera del formulario - Botón de descarga
+if st.session_state.download_data:
+    # Crear DataFrame con los mismos datos que se enviaron a Google Sheets
+    df = pd.DataFrame(st.session_state.download_data, columns=[
+        "Programa", "ID", "Nombre", "Materia", 
+        "Créditos", "Curso", "Clave", "Nombre de la Materia",
+        "Timestamp", "Teléfono", "Correo", "Género"
+    ])
+    
+    # Crear archivo Excel en memoria
+    output = BytesIO()
+    with pd.ExcelWriter(output, engine='openpyxl') as writer:
+        df.to_excel(writer, index=False, sheet_name='Registro Materias')
+    
+    # Configurar el botón de descarga
+    st.download_button(
+        label="Descargar a Excel",
+        data=output.getvalue(),
+        file_name="Registro_Materias.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    )
