@@ -4,10 +4,3 @@ credentials.json
 *.pem
 .env
 secrets.toml
-
-# Cache y archivos generados
-__pycache__/
-*.py[cod]
-*.so
-.Python
-
