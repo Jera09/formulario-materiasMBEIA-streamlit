@@ -203,10 +203,11 @@ with st.form("registro_form"):
     st.write("")
     st.write("## Consideraciones para el llenado del formulario:")
     st.write(""" 
-    #### - Debes seleccionar al menos 2 materias del área de Ciencia de datos e Inteligencia Artificial
-    #### - Recuerda seleccionar un máximo de 9 materias (58 créditos)
-    #### - Las materias obligatorias ya se encuentran precargadas (4 materias, 27 créditos)
-    #### - [Enlace para consulta de contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+    #### - ***Debes seleccionar al menos 2 materias*** del área de Ciencia de datos e Inteligencia Artificial
+    #### - Recuerda seleccionar un ***máximo*** de 9 materias (58 créditos)
+    #### - Las materias obligatorias ya se encuentran ***precargadas*** (4 materias, 27 créditos)
+    #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en Excel para su consulta
+    #### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
     """)
     st.write("")
     st.write("")
