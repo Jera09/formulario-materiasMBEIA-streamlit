@@ -206,7 +206,7 @@ with st.form("registro_form"):
     #### - Debes seleccionar al menos 2 materias del área de Ciencia de datos e Inteligencia Artificial
     #### - Recuerda seleccionar un máximo de 9 materias (58 créditos)
     #### - Las materias obligatorias ya se encuentran precargadas (4 materias, 27 créditos)
-    #### - [Enlace para consulta de contenido de cada materia](https://google.com)
+    #### - [Enlace para consulta de contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
     """)
     st.write("")
     st.write("")
