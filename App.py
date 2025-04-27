@@ -215,11 +215,12 @@ with st.form("registro_form"):
     opciones_seleccionadas = []
     
     for area, materias in areas_competencias.items():
-        st.markdown("---")
-        st.subheader(area)
-        for materia in materias:
-            if st.checkbox(f"{materia['materia']} (Créditos: {materia['créditos']})"):
-                opciones_seleccionadas.append(materia["materia"])
+        with st.expander(f" ***{area}***", expanded=False):
+            st.write("")
+            for materia in materias:
+                st.write("---")  # Línea divisoria entre materias
+                if st.checkbox(f"{materia['materia']} (Créditos: {materia['créditos']})"):
+                    opciones_seleccionadas.append(materia["materia"])
     
     submitted = st.form_submit_button("Enviar Registro")
 
