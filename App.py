@@ -66,33 +66,33 @@ def save_to_gsheets(data_rows):
 # Áreas de competencia y materias
 areas_competencias = {
     "Dirección y Liderazgo": [
-        {"materia": "Negociación estratégica", "curso": "LDR", "clave": "55705", "créditos": 6},
+        {"materia": "Negociación estratégica*", "curso": "LDR", "clave": "55705", "créditos": 6},
         {"materia": "Competencias de liderazgo para la gestión de equipos de alto desempeño", "curso": "LDR", "clave": "55700", "créditos": 6},
     ],
     "Planeación y Estrategia": [
         {"materia": "Simulación de negocios", "curso": "ADM", "clave": "55702", "créditos": 6},
         {"materia": "Visión estratégica de la tecnología", "curso": "ADM", "clave": "55704", "créditos": 6},
     ],
-    "Ciencia de Datos e Inteligencia Artificial":[
-        {"materia": "Inteligencia Artificial",  "curso": "ITI", "clave": "55701", "créditos": 6},
-        {"materia": "Machine learning",  "curso": "ITI", "clave": "55703", "créditos": 6},
+    "**Ciencia de Datos e Inteligencia Artificial (Seleccionar al menos 2 materias)":[
+        {"materia": "Inteligencia Artificial*",  "curso": "ITI", "clave": "55701", "créditos": 6},
+        {"materia": "Machine learning*",  "curso": "ITI", "clave": "55703", "créditos": 6},
         {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 6},
         {"materia": "Internet de las cosas", "curso": "ITI", "clave": "55702", "créditos": 6},
         {"materia": "Realidad virtual y aumentada", "curso": "ITI", "clave": "55705", "créditos": 6},
     ],
     "Análisis e Inteligencia de Negocios": [
-        {"materia": "Herramientas de Inteligencia de Negocios", "curso": "ADM", "clave": "55706", "créditos": 6},
-        {"materia": "Modelo y visualización de datos", "curso": "MAT", "clave": "55706", "créditos": 6},
-        {"materia": "Modelos y herramientas de Analítica de datos aplicada a los negocios",  "curso": "MAT", "clave": "55707", "créditos": 7},
+        {"materia": "Herramientas de Inteligencia de Negocios*", "curso": "ADM", "clave": "55706", "créditos": 6},
+        {"materia": "Modelo y visualización de datos*", "curso": "MAT", "clave": "55706", "créditos": 6},
+        {"materia": "Modelos y herramientas de Analítica de datos aplicada a los negocios*",  "curso": "MAT", "clave": "55707", "créditos": 7},
          {"materia": "Administración de riesgos de Negocio", "curso": "ADM", "clave": "55705", "créditos": 6},
         {"materia": "Sistemas Estratégicos de Dirección y Evaluación de Desempeño", "curso": "ADM", "clave": "55707", "créditos": 6},
         
     ],
 
     "Ingeniería y Operaciones": [
-        {"materia": "Lean Management",  "curso": "IIND", "clave": "55701", "créditos": 7},
-        {"materia": "Sistemas de gestión empresarial", "curso": "IIND", "clave": "55703", "créditos": 6},
-        {"materia": "Six sigma", "curso": "IIND", "clave": "55705", "créditos": 6},
+        {"materia": "Lean Management*",  "curso": "IIND", "clave": "55701", "créditos": 7},
+        {"materia": "Sistemas de gestión empresarial*", "curso": "IIND", "clave": "55703", "créditos": 6},
+        {"materia": "Six sigma*", "curso": "IIND", "clave": "55705", "créditos": 6},
         {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 6},
         {"materia": "Logística y cadena de suministros", "curso": "IIND", "clave": "55702", "créditos": 6},
         {"materia": "Sistemas flexibles de Manufactura", "curso": "IIND", "clave": "55704", "créditos": 6},
@@ -108,20 +108,20 @@ areas_competencias = {
     ],
 
     "Innovación Tecnológica y Emprendimiento":[
-        {"materia": "Administración de proyectos", "curso": "EMP", "clave": "55700", "créditos": 6},
-        {"materia": "Desing Thinking", "curso": "EMP", "clave": "55701", "créditos": 7},
+        {"materia": "Administración de proyectos*", "curso": "EMP", "clave": "55700", "créditos": 6},
+        {"materia": "Desing Thinking*", "curso": "EMP", "clave": "55701", "créditos": 7},
         {"materia": "Emprendimiento de negocios", "curso": "EMP", "clave": "55702", "créditos": 6},
         {"materia": "Mindset digital",  "curso": "EMP", "clave": "55703", "créditos": 7},
         {"materia": "Negocios electrónicos", "curso": "EMP", "clave": "55704", "créditos": 6},
     ],
     "Economía y Finanzas": [
-        {"materia": "Empresas, clústeres, desarrollo económico y social", "curso": "FIN", "clave": "55701", "créditos": 7},
-        {"materia": "Finanzas bursátiles y digitales", "curso": "FIN", "clave": "55702", "créditos": 6},
-        {"materia": "Fundamentos analíticos para finanzas", "curso": "FIN", "clave": "55704", "créditos": 7},
-        {"materia": "Portafolios de inversión", "curso": "FIN", "clave": "55705", "créditos": 6},
+        {"materia": "Empresas, clústeres, desarrollo económico y social**", "curso": "FIN", "clave": "55701", "créditos": 7},
+        {"materia": "Finanzas bursátiles y digitales*", "curso": "FIN", "clave": "55702", "créditos": 6},
+        {"materia": "Fundamentos analíticos para finanzas*", "curso": "FIN", "clave": "55704", "créditos": 7},
+        {"materia": "Portafolios de inversión*", "curso": "FIN", "clave": "55705", "créditos": 6},
     ],
     "Mercadotecnia":[
-        {"materia": "Comercio electrónico y estrategias de mercadotecnia digital", "curso": "MER", "clave": "55701", "créditos": 6}, 
+        {"materia": "Comercio electrónico y estrategias de mercadotecnia digital*", "curso": "MER", "clave": "55701", "créditos": 6}, 
         {"materia": "Análisis de mercado y toma de decisiones", "curso": "MER", "clave": "55700", "créditos": 6},
         {"materia": "Estrategias de mercadotecnia", "curso": "MER", "clave": "55702", "créditos": 7},
         {"materia": "Inteligencia y perspectiva estratégica del consumidor",  "curso": "MER", "clave": "55704", "créditos": 6},        
@@ -134,12 +134,12 @@ areas_competencias = {
         {"materia": "Estadística descriptiva e inferencial", "curso": "MAT", "clave": "55702", "créditos": 6},
     ],
     "Comunicación":[
-        {"materia": "Comunicación digital", "curso": "COM", "clave": "55701", "créditos": 6},
+        {"materia": "Comunicación digital*", "curso": "COM", "clave": "55701", "créditos": 6},
         {"materia": "Gestión estratégica de la comunicación", "curso": "COM", "clave": "55702", "créditos": 7},
     ],
     "Talento Humano y Organizacional":[
-        {"materia": "Consultoría y desarrollo organizacional", "curso": "PSI", "clave": "55702", "créditos": 7},
-        {"materia": "Gestión integral del talento", "curso": "PSI", "clave": "55704", "créditos": 7},
+        {"materia": "Consultoría y desarrollo organizacional*", "curso": "PSI", "clave": "55702", "créditos": 7},
+        {"materia": "Gestión integral del talento*", "curso": "PSI", "clave": "55704", "créditos": 7},
     ]
 }
 
@@ -207,12 +207,13 @@ with st.form("registro_form"):
     #### - Recuerda seleccionar un ***máximo*** de 9 materias (58 créditos)
     #### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Ciencia de Datos, Minería de datos) ya se encuentran ***precargadas*** (27 créditos)
     #### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
-    #### - [En este enlace podrás consultar las cetificaciones a las que abonan las materias](https://www.google.com/)
+    #### - [En este enlace podrás consultar las cetificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
     #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en Excel para su consulta
     #### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
     """)
     st.write("")
     st.write("")
+    st.write("## Áreas de competencia:")
 
     opciones_seleccionadas = []
     
