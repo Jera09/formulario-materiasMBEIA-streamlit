@@ -162,7 +162,7 @@ def BD_IA():
                         "curso_clave": f"{materia['curso']}{materia['clave']}",
                         "curso": materia["curso"],
                         "clave": materia["clave"],
-                        "nombre_materia": f"{materia['curso']}{materia['clave']}{materia['materia']}",
+                        "nombre_materia": f"{materia['materia']}",
                         "creditos": materia["créditos"]
                     }
         
@@ -173,7 +173,7 @@ def BD_IA():
                     "curso_clave": f"{materia['curso']}{materia['clave']}",
                     "curso": materia["curso"],
                     "clave": materia["clave"],
-                    "nombre_materia": f"{materia['curso']}{materia['clave']}{materia['materia']}",
+                    "nombre_materia": f"{materia['materia']}",
                     "creditos": materia["créditos"]
                 }
         return None
