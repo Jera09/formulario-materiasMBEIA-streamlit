@@ -4,6 +4,10 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 import pandas as pd
 from io import BytesIO
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
 
 def BD_IA():
 
@@ -296,24 +300,74 @@ def BD_IA():
                         else:
                             st.error("Error al guardar en la base de datos. Por favor, intente nuevamente.")
 
-    # Fuera del formulario - Botón de descarga
+    # Fuera del formulario - Botón de descarga (MODIFICADO PARA PDF)
     if st.session_state.download_data:
-        # Crear DataFrame con los mismos datos que se enviaron a Google Sheets
+        # Crear DataFrame con los datos
         df = pd.DataFrame(st.session_state.download_data, columns=[
-            "Programa", "ID", "Nombre", "Materia", 
+            "Programa", "ID", "Nombre", "Materia",
             "Créditos", "Curso", "Clave", "Nombre de la Materia",
             "Timestamp", "Teléfono", "Correo", "Género"
         ])
         
-        # Crear archivo Excel en memoria
-        output = BytesIO()
-        with pd.ExcelWriter(output, engine='openpyxl') as writer:
-            df.to_excel(writer, index=False, sheet_name='Registro Materias')
+        # Obtener datos para el PDF
+        nombre = df.iloc[0]['Nombre']
+        programa = df.iloc[0]['Programa']
+        materias = df[['Nombre de la Materia', 'Créditos']]
+        creditos_totales = df['Créditos'].sum()
         
-        # Configurar el botón de descarga
+        # Crear PDF en memoria
+        buffer = BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=letter)
+        elements = []
+        
+        # Estilos
+        styles = getSampleStyleSheet()
+        style_normal = styles['Normal']
+        style_heading = styles['Heading1']
+        
+        # Mensaje de bienvenida
+        welcome_msg = f"Estimado {nombre}, bienvenido a tu programa de Maestría en {programa}."
+        elements.append(Paragraph(welcome_msg, style_heading))
+        elements.append(Spacer(1, 12))
+        
+        # Texto descriptivo
+        elements.append(Paragraph("A continuación compartimos contigo el programa ideal que has generado:", style_normal))
+        elements.append(Spacer(1, 24))
+        
+        # Crear tabla con materias
+        table_data = [['Nombre de la Materia', 'Créditos']]  # Encabezados
+        
+        for _, row in materias.iterrows():
+            table_data.append([row['Nombre de la Materia'], str(row['Créditos'])])
+        
+        # Añadir fila de totales
+        table_data.append(['<b>Créditos totales</b>', f'<b>{creditos_totales}</b>'])
+        
+        # Crear y estilizar tabla
+        table = Table(table_data)
+        table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 12),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+            ('BACKGROUND', (0, 1), (-1, -2), colors.beige),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('FONTNAME', (0, -1), (-1, -1), 'Helvetica-Bold'),
+        ]))
+        
+        elements.append(table)
+        elements.append(Spacer(1, 24))
+        
+        # Construir PDF
+        doc.build(elements)
+        
+        # Configurar el botón de descarga para PDF
         st.download_button(
-            label="Descargar a Excel",
-            data=output.getvalue(),
-            file_name="Registro_Materias.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            label="Descargar a PDF",
+            data=buffer.getvalue(),
+            file_name="Programa_Maestria.pdf",
+            mime="application/pdf"
         )
