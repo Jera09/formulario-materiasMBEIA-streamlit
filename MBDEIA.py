@@ -209,13 +209,13 @@ def BD_IA():
         st.write("")
         st.write("## Consideraciones para el llenado del formulario:")
         st.write(""" 
-        #### - ***Debes seleccionar al menos 2 materias*** del área de Ciencia de datos e Inteligencia Artificial
-        #### - Recuerda seleccionar un ***máximo*** de 9 materias (58 créditos)
-        #### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Ciencia de Datos, Minería de datos) ya se encuentran ***precargadas*** (27 créditos)
-        #### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
-        #### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
-        #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
-        #### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+        ##### - ***Debes seleccionar al menos 2 materias*** del área de Ciencia de datos e Inteligencia Artificial
+        ##### - Recuerda seleccionar un ***máximo*** de 9 materias (58 créditos)
+        ##### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Ciencia de Datos, Minería de datos) ya se encuentran ***precargadas*** (27 créditos)
+        ##### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
+        ##### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
+        ##### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
+        ##### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
         """)
         st.write("")
         st.write("")
