@@ -127,7 +127,7 @@ def mmyce():
             {"materia": "Modelación empresarial",  "curso": "MAT", "clave": "55705", "créditos": 6},
         ],
           "Economía y Finanzas": [
-            {"materia": "Empresas, clústeres, desarrollo económico y social", "curso": "FIN", "clave": "55701", "créditos": 7},
+            {"materia": "Empresas, clústeres, desarrollo económico y social**", "curso": "FIN", "clave": "55701", "créditos": 7},
             {"materia": "Finanzas corporativas y planeación financiera", "curso": "FIN", "clave": "55703", "créditos": 6},
         ],
         "Administración y Gestión Pública": [
