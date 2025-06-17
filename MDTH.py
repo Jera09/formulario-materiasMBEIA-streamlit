@@ -120,7 +120,7 @@ def MDTH():
             {"materia": "Neuromarketing", "curso": "MER", "clave": "55705", "créditos": 6},        
         ],
         "**Economía y Finanzas (Debes seleccionar una materia o del área de Análisis e Inteligencia de Negocios)": [
-            {"materia": "Empresas, clústeres, desarrollo económico y social", "curso": "FIN", "clave": "55701", "créditos": 7},
+            {"materia": "Empresas, clústeres, desarrollo económico y social**", "curso": "FIN", "clave": "55701", "créditos": 7},
             {"materia": "Finanzas corporativas y planeación financiera", "curso": "FIN", "clave": "55703", "créditos": 6},
         ],
         "Análisis e Inteligencia de Negocios": [
