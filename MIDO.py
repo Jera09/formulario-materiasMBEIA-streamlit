@@ -101,7 +101,7 @@ def MIDO():
         "**Análisis e Inteligencia de Negocios (Debes seleccionar al menos 1 materia)": [
             {"materia": "Herramientas de Inteligencia de Negocios*", "curso": "ADM", "clave": "55706", "créditos": 6},
             {"materia": "Modelos y herramientas de Analítica de datos aplicada a los negocios*",  "curso": "MAT", "clave": "55707", "créditos": 7},
-            {"materia": "Modelo y visualización de datos*", "curso": "MAT", "clave": "55706", "créditos": 6}, 
+            {"materia": "Modelado y visualización de datos*", "curso": "MAT", "clave": "55706", "créditos": 6}, 
             {"materia": "Administración de riesgos de Negocio", "curso": "ADM", "clave": "55705", "créditos": 6},
             {"materia": "Sistemas Estratégicos de Dirección y Evaluación de Desempeño", "curso": "ADM", "clave": "55707", "créditos": 6},         
         ],
@@ -208,7 +208,7 @@ def MIDO():
         #### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Dirección de Operaciones en Empresas, Lean Management) ya se encuentran ***precargadas*** (27 créditos)
         #### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
         #### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
-        #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en Excel para su consulta
+        #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
         #### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
         """)
         st.write("")
