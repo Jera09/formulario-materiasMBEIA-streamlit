@@ -70,7 +70,7 @@ def MFEAN():
         ],
         "**Análisis e Inteligencia de Negocios (Debes seleccionar una materia o del área de Economía y Finanzas)": [
             {"materia": "Herramientas de Inteligencia de Negocios*", "curso": "ADM", "clave": "55706", "créditos": 6},
-            {"materia": "Modelo y visualización de datos*", "curso": "MAT", "clave": "55706", "créditos": 6},
+            {"materia": "Modelado y visualización de datos*", "curso": "MAT", "clave": "55706", "créditos": 6},
             {"materia": "Administración de riesgos de Negocio", "curso": "ADM", "clave": "55705", "créditos": 6},
             {"materia": "Sistemas Estratégicos de Dirección y Evaluación de Desempeño", "curso": "ADM", "clave": "55707", "créditos": 6},           
         ],
