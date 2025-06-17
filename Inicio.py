@@ -12,7 +12,7 @@ def inicio():
         ["Fianzas Estratégicas y Análisis de Negocios", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
         ["Mercadotecnia y Comunicación Estratégica", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
         ["Dirección Estratégica del Talento Humano", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
-        ["Administración y Gestión Publica", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
+        ["Administración y Gestión Publica", "Armando Uriel García Santana", "armandou.garciasa@anahuac.mx"],
         ["Estratégia y  Dirección de Empresas", "Armando Uriel García Santana", "armandou.garciasa@anahuac.mx"],
         ["Innovación, Emprendimiento y Dirección de Tecnología", "Armando Uriel García Santana", "armandou.garciasa@anahuac.mx"],
         ["Derecho Empresarial y Gobierno Corporativo", "Armando Uriel García Santana", "armandou.garciasa@anahuac.mx"],
