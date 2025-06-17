@@ -6,6 +6,8 @@ from MMyCE import mmyce
 from MFEAN import MFEAN
 from MDTH import MDTH
 from MIDO import MIDO
+from MIEDT import MIEDT
+from MDEGC import MDEGC
 
 # Configuración inicial
 st.set_page_config(
@@ -21,7 +23,7 @@ if "menu" not in st.session_state:
     st.session_state.menu = "Inicio"
 
 with st.sidebar:
-    st.session_state.menu = st.selectbox("Menu", ["Inicio","Big Data e Inteligencia Artificial", "Estratégia y Dirección de Empresas", "Mercadotecnia y Comunicación Estratégica", "Finanzas Estratégicas y Análisis de Negocios", "Dirección Estratégica del Talento Humano", "Ingeniería para la Dirección de Operaciones"])
+    st.session_state.menu = st.selectbox("Menu", ["Inicio","Big Data e Inteligencia Artificial", "Estratégia y Dirección de Empresas", "Mercadotecnia y Comunicación Estratégica", "Finanzas Estratégicas y Análisis de Negocios", "Dirección Estratégica del Talento Humano", "Ingeniería para la Dirección de Operaciones", "Innovación, Emprendimiento y Dirección de Tecnología", "Derecho Empresarial y Gobierno Corporativo"])
 
 
 if st.session_state.menu == "Inicio":
@@ -38,3 +40,7 @@ elif st.session_state.menu == "Dirección Estratégica del Talento Humano":
     MDTH()
 elif st.session_state.menu == "Ingeniería para la Dirección de Operaciones":
     MIDO()
+elif st.session_state.menu == "Innovación, Emprendimiento y Dirección de Tecnología":
+    MIEDT()
+elif st.session_state.menu =="Derecho Empresarial y Gobierno Corporativo":
+    MDEGC()
