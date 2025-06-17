@@ -198,7 +198,7 @@ def MDTH():
         #### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Consultoría y desarrollo organizacional, Gestión integral del talento, Herramientas de análisis de decisiones) ya se encuentran ***precargadas*** (34 créditos)
         #### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
         #### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
-        #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en Excel para su consulta
+        #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
         #### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
         """)
         st.write("")
