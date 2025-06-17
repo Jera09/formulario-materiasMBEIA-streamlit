@@ -94,7 +94,7 @@ def MIEDT():
             {"materia": "Realidad virtual y aumentada", "curso": "ITI", "clave": "55705", "créditos": 6},
         ],
           "Economía y Finanzas": [
-            {"materia": "Empresas, clústeres, desarrollo económico y social*", "curso": "FIN", "clave": "55701", "créditos": 7},
+            {"materia": "Empresas, clústeres, desarrollo económico y social**", "curso": "FIN", "clave": "55701", "créditos": 7},
             {"materia": "Finanzas bursátiles y digitales*", "curso": "FIN", "clave": "55702", "créditos": 6},
             {"materia": "Fundamentos analíticos para finanzas", "curso": "FIN", "clave": "55704", "créditos": 7},
             {"materia": "Portafolios de inversión*", "curso": "FIN", "clave": "55705", "créditos": 6},
