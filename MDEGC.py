@@ -100,7 +100,7 @@ def MDEGC():
             {"materia": "Responsabilidad social organizacional y comunicación", "curso": "COM", "clave": "55705", "créditos": 6},
         ],
         "Economía y Finanzas": [
-            {"materia": "Empresas, clústeres, desarrollo económico y social", "curso": "FIN", "clave": "55701", "créditos": 7},
+            {"materia": "Empresas, clústeres, desarrollo económico y social**", "curso": "FIN", "clave": "55701", "créditos": 7},
             {"materia": "Finanzas bursátiles y digitales*", "curso": "FIN", "clave": "55702", "créditos": 6},
             {"materia": "Fundamentos analíticos de finanzas*", "curso": "FIN", "clave": "55704", "créditos": 7},
             {"materia": "Economía y finanzas internacionales", "curso": "FIN", "clave": "55700", "créditos": 6},
