@@ -253,11 +253,11 @@ def MAGP():
                     "Empresas, clústeres, desarrollo económico y social**", "Finanzas bursátiles y digitales*",
                     "Fundamentos analíticos para finanzas*", "Portafolios de inversión*", "Economía y finanzas internacionales", "Finanzas corporativas y planeación financiera"
                 ]
-                seleccionadas_analisis = [m for m in materias_con_obligatorias if m in materias_analisis]
+                seleccionadas_economia = [m for m in materias_con_obligatorias if m in materias_economia]
                 
-                if len(seleccionadas_derecho) < 1:
+                if len(seleccionadas_Administracion_gestion) < 1:
                     st.error("Debes seleccionar al menos  materia del área 'Administración y Gestión Pública'.")
-                elif len(seleccionadas_analisis) < 1:
+                elif len(seleccionadas_economia) < 1:
                     st.error("Debes seleccionar al menos  materia del área 'Economía y Finanzas'.")
                 else:
                     # Validar número máximo de materias (9) y créditos (85)
@@ -347,7 +347,7 @@ def MAGP():
             table_data.append([row['Nombre de la Materia'], str(row['Créditos'])])
         
         # Añadir fila de totales
-        table_data.append(['<b>Créditos totales</b>', f'<b>{creditos_totales}</b>'])
+        table_data.append(['Créditos totales', f'{creditos_totales}'])
         
         # Crear y estilizar tabla
         table = Table(table_data)
