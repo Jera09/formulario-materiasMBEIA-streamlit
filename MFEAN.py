@@ -4,6 +4,10 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 import pandas as pd
 from io import BytesIO
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from reportlab.lib import colors
 
 def MFEAN():
 
@@ -70,7 +74,7 @@ def MFEAN():
         ],
         "**Análisis e Inteligencia de Negocios (Debes seleccionar una materia o del área de Economía y Finanzas)": [
             {"materia": "Herramientas de Inteligencia de Negocios*", "curso": "ADM", "clave": "55706", "créditos": 6},
-            {"materia": "Modelado y visualización de datos*", "curso": "MAT", "clave": "55706", "créditos": 6},
+            {"materia": "Modelo y visualización de datos*", "curso": "MAT", "clave": "55706", "créditos": 6},
             {"materia": "Administración de riesgos de Negocio", "curso": "ADM", "clave": "55705", "créditos": 6},
             {"materia": "Sistemas Estratégicos de Dirección y Evaluación de Desempeño", "curso": "ADM", "clave": "55707", "créditos": 6},           
         ],
@@ -144,7 +148,7 @@ def MFEAN():
         {"materia": "Planeación Estratégica de las organizaciones", "curso": "ADM", "clave": "55701", "créditos": 7},
         {"materia": "Modelos y herramientas de Analítica de datos aplicada a los negocios*",  "curso": "MAT", "clave": "55707", "créditos": 7},
         {"materia": "Empresas, clústeres, desarrollo económico y social**", "curso": "FIN", "clave": "55701", "créditos": 7},
-        {"materia": "Fundamentos analíticos para finanzas*", "curso": "FIN", "clave": "55704", "créditos": 7},
+        {"materia": "Fundamentos analíticos de finanzas*", "curso": "FIN", "clave": "55704", "créditos": 7},
     ]
 
     # Función para obtener detalles completos de cada materia
@@ -200,13 +204,13 @@ def MFEAN():
         st.write("")
         st.write("## Consideraciones para el llenado del formulario:")
         st.write(""" 
-        ##### - ***Debes seleccionar al menos 1 materia*** del área de Análisis e Inteligencia de Negocios o de Economía y Finanzas
-        ##### - Recuerda seleccionar un ***máximo*** de 8 materias (51 créditos)
-        ##### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Modelos y Herramientas de Analítica de Datos Aplicada a los Negocios,  Empresas, Clústeres, Desarrollo Económico y Social, Fundamentos Analíticos de Finanzas) ya se encuentran ***precargadas*** (34 créditos)
-        ##### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
-        ##### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
-        ##### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
-        ##### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+        #### - ***Debes seleccionar al menos 1 materia*** del área de Análisis e Inteligencia de Negocios o de Economía y Finanzas
+        #### - Recuerda seleccionar un ***máximo*** de 8 materias (51 créditos)
+        #### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Modelos y Herramientas de Analítica de Datos Aplicada a los Negocios,  Empresas, Clústeres, Desarrollo Económico y Social, Fundamentos Analíticos de Finanzas) ya se encuentran ***precargadas*** (34 créditos)
+        #### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
+        #### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
+        #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en Excel para su consulta
+        #### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
         """)
         st.write("")
         st.write("")
@@ -243,7 +247,7 @@ def MFEAN():
                 ]
                 seleccionadas_analisis_o_economia = [m for m in materias_con_obligatorias if m in materias_analisis_o_economia ]
                 
-                if len(seleccionadas_direccion_o_planeacion) < 1:
+                if len(seleccionadas_analisis_o_economia) < 1:
                     st.error("Debes seleccionar al menos  materia del área 'Análisis e Inteligencia de Negocios' o 'Economía y Finanzas'.")
                 else:
                     # Validar número máximo de materias (9) y créditos (85)
@@ -292,24 +296,74 @@ def MFEAN():
                         else:
                             st.error("Error al guardar en la base de datos. Por favor, intente nuevamente.")
 
-    # Fuera del formulario - Botón de descarga
+    # Fuera del formulario - Botón de descarga (MODIFICADO PARA PDF)
     if st.session_state.download_data:
-        # Crear DataFrame con los mismos datos que se enviaron a Google Sheets
+        # Crear DataFrame con los datos
         df = pd.DataFrame(st.session_state.download_data, columns=[
-            "Programa", "ID", "Nombre", "Materia", 
+            "Programa", "ID", "Nombre", "Materia",
             "Créditos", "Curso", "Clave", "Nombre de la Materia",
             "Timestamp", "Teléfono", "Correo", "Género"
         ])
         
-        # Crear archivo Excel en memoria
-        output = BytesIO()
-        with pd.ExcelWriter(output, engine='openpyxl') as writer:
-            df.to_excel(writer, index=False, sheet_name='Registro Materias')
+        # Obtener datos para el PDF
+        nombre = df.iloc[0]['Nombre']
+        programa = df.iloc[0]['Programa']
+        materias = df[['Nombre de la Materia', 'Créditos']]
+        creditos_totales = df['Créditos'].sum()
         
-        # Configurar el botón de descarga
+        # Crear PDF en memoria
+        buffer = BytesIO()
+        doc = SimpleDocTemplate(buffer, pagesize=letter)
+        elements = []
+        
+        # Estilos
+        styles = getSampleStyleSheet()
+        style_normal = styles['Normal']
+        style_heading = styles['Heading1']
+        
+        # Mensaje de bienvenida
+        welcome_msg = f"Estimado {nombre}, bienvenido a tu programa de Maestría en {programa}."
+        elements.append(Paragraph(welcome_msg, style_heading))
+        elements.append(Spacer(1, 12))
+        
+        # Texto descriptivo
+        elements.append(Paragraph("A continuación compartimos contigo el programa ideal que has generado:", style_normal))
+        elements.append(Spacer(1, 24))
+        
+        # Crear tabla con materias
+        table_data = [['Nombre de la Materia', 'Créditos']]  # Encabezados
+        
+        for _, row in materias.iterrows():
+            table_data.append([row['Nombre de la Materia'], str(row['Créditos'])])
+        
+        # Añadir fila de totales
+        table_data.append(['Créditos totales', f'{creditos_totales}'])
+        
+        # Crear y estilizar tabla
+        table = Table(table_data)
+        table.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('TEXTCOLOR', (0, 0), (-1, 0), colors.whitesmoke),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
+            ('FONTNAME', (0, 0), (-1, 0), 'Helvetica-Bold'),
+            ('FONTSIZE', (0, 0), (-1, 0), 12),
+            ('BOTTOMPADDING', (0, 0), (-1, 0), 12),
+            ('BACKGROUND', (0, 1), (-1, -2), colors.beige),
+            ('GRID', (0, 0), (-1, -1), 1, colors.black),
+            ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+            ('FONTNAME', (0, -1), (-1, -1), 'Helvetica-Bold'),
+        ]))
+        
+        elements.append(table)
+        elements.append(Spacer(1, 24))
+        
+        # Construir PDF
+        doc.build(elements)
+        
+        # Configurar el botón de descarga para PDF
         st.download_button(
-            label="Descargar a Excel",
-            data=output.getvalue(),
-            file_name="Registro_Materias.xlsx",
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            label="Descargar a PDF",
+            data=buffer.getvalue(),
+            file_name="Programa_Maestria.pdf",
+            mime="application/pdf"
         )
