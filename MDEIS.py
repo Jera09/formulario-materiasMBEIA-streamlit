@@ -335,7 +335,7 @@ def MDEIS():
             table_data.append([row['Nombre de la Materia'], str(row['Créditos'])])
         
         # Añadir fila de totales
-        table_data.append(['<b>Créditos totales</b>', f'<b>{creditos_totales}</b>'])
+        table_data.append(['Créditos totales', f'{creditos_totales}'])
         
         # Crear y estilizar tabla
         table = Table(table_data)
