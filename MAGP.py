@@ -8,6 +8,9 @@ from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
+from reportlab.lib.utils import ImageReader
+from reportlab.lib.units import inch
+from reportlab.platypus import Image
 
 def MAGP():
 
