@@ -334,6 +334,22 @@ def MIDO():
         buffer = BytesIO()
         doc = SimpleDocTemplate(buffer, pagesize=letter)
         elements = []
+
+        # --- ENCABEZADO SIMPLIFICADO ---
+        # Espacio antes de la imagen
+        elements.append(Spacer(1, 1))
+    
+        # Agregar imagen de encabezado (centrada)
+        try:
+            img = Image("encabezado.jpg", width=1.5*inch, height=1.5*inch)
+            img.hAlign = 'CENTER'  # Centrar la imagen
+            elements.append(img)
+        except:
+            st.warning("No se pudo cargar la imagen de encabezado")
+    
+        # Espacio después de la imagen
+        elements.append(Spacer(1, 24))
+            
         
         # Estilos
         styles = getSampleStyleSheet()
@@ -375,9 +391,19 @@ def MIDO():
         
         elements.append(table)
         elements.append(Spacer(1, 24))
-        
+         # --- AGREGAR PIE DE PÁGINA CON IMAGEN ---
+        def add_footer(canvas, doc):
+            # Ruta a tu imagen de pie de página
+            footer_img_path = "footer.png"  # o "footer.png"
+            try:
+                footer_img = ImageReader(footer_img_path)
+                # Posicionar en la parte inferior (x, y, width, height)
+                canvas.drawImage(footer_img, 1.3*inch, 0.5*inch, width=6*inch, height=0.75*inch)
+            except:
+                pass  # Silenciar error si no se encuentra la imagen
+
         # Construir PDF
-        doc.build(elements)
+        doc.build(elements, onFirstPage=add_footer, onLaterPages=add_footer)
         
         # Configurar el botón de descarga para PDF
         st.download_button(
