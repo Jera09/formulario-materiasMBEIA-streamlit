@@ -9,7 +9,7 @@ def inicio():
     st.write("#### Del menu selecciona el programa de maestría al que perteneces. Dentro encontraras una serie de instrucciones, las cuales dependerán del programa al que perteneces. ####")
     st.write("#### Por favor tomate tu tiempo para realizar la selección, en caso de tener alguna duda contacta a tu coordinador. ####")
     datos = [
-        ["Fianzas Estratégicas y Análisis de Negocios", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
+        ["Finanzas Estratégicas y Análisis de Negocios", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
         ["Mercadotecnia y Comunicación Estratégica", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
         ["Dirección Estratégica del Talento Humano", "Juan Manuel Pérez Cruz", "manuel.perezcr@anahuac.mx"],
         ["Administración y Gestión Publica", "Armando Uriel García Santana", "armandou.garciasa@anahuac.mx"],
