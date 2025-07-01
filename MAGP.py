@@ -335,7 +335,7 @@ def MAGP():
     
         # Agregar imagen de encabezado (centrada)
         try:
-            img = Image("encabezado.jpg", width=1.5*inch, height=1.5*inch)
+            img = Image("encabezado.jpg", width=1.5*inch, height=1.8*inch)
             img.hAlign = 'CENTER'  # Centrar la imagen
             elements.append(img)
         except:
