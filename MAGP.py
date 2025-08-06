@@ -254,7 +254,7 @@ def MAGP():
                 # Validar materias de Innovación Tecnológica y Emprendimiento
                 materias_economia = [
                     "Empresas, clústeres, desarrollo económico y social**", "Finanzas bursátiles y digitales*",
-                    "Fundamentos analíticos para finanzas*", "Portafolios de inversión*", "Economía y finanzas internacionales", "Finanzas corporativas y planeación financiera"
+                    "Fundamentos analíticos de finanzas*", "Portafolios de inversión*", "Economía y finanzas internacionales", "Finanzas corporativas y planeación financiera"
                 ]
                 seleccionadas_economia = [m for m in materias_con_obligatorias if m in materias_economia]
                 
@@ -406,3 +406,4 @@ def MAGP():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
