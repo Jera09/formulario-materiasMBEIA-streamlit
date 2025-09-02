@@ -148,7 +148,7 @@ def MIDO():
         {"materia": "Liderazgo de Acción Positiva", "curso": "LDR", "clave": "55703", "créditos": 6},
         {"materia": "Planeación Estratégica de las organizaciones", "curso": "ADM", "clave": "55701", "créditos": 7},
         {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 6},
-        {"materia": "Lean Management*",  "curso": "IIND", "clave": "55701", "créditos": 7},
+        {"materia": "Lean Management*",  "curso": "IIND", "clave": "55707", "créditos": 7},
     ]
 
     # Función para obtener detalles completos de cada materia
@@ -415,3 +415,4 @@ def MIDO():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
