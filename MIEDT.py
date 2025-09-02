@@ -111,7 +111,7 @@ def MIEDT():
             {"materia": "Neuromarketing", "curso": "MER", "clave": "55705", "créditos": 6},        
         ],
         "Ingeniería y Operaciones": [
-            {"materia": "Lean Management*",  "curso": "IIND", "clave": "55701", "créditos": 7},
+            {"materia": "Lean Management*",  "curso": "IIND", "clave": "55707", "créditos": 7},
             {"materia": "Sistemas de gestión empresarial*", "curso": "IIND", "clave": "55703", "créditos": 6},
             {"materia": "Six sigma*", "curso": "IIND", "clave": "55705", "créditos": 6},
             {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 6},
@@ -395,3 +395,4 @@ def MIEDT():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
