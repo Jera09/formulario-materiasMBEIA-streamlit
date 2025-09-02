@@ -140,7 +140,7 @@ def MDEGC():
             {"materia": "Negocios electrónicos", "curso": "EMP", "clave": "55704", "créditos": 6},
         ],
         "Ingeniería y Operaciones": [
-            {"materia": "Lean Management*",  "curso": "IIND", "clave": "55701", "créditos": 7},
+            {"materia": "Lean Management*",  "curso": "IIND", "clave": "55707", "créditos": 7},
             {"materia": "Six sigma*", "curso": "IIND", "clave": "55705", "créditos": 6},
             {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 6},
         ],
@@ -415,3 +415,4 @@ def MDEGC():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
