@@ -102,7 +102,7 @@ def BD_IA():
             {"materia": "Lean Management*",  "curso": "IIND", "clave": "55707", "créditos": 7},
             {"materia": "Sistemas de gestión empresarial*", "curso": "IIND", "clave": "55703", "créditos": 6},
             {"materia": "Six sigma*", "curso": "IIND", "clave": "55705", "créditos": 6},
-            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 6},
+            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 7},
             {"materia": "Logística y cadena de suministros", "curso": "IIND", "clave": "55702", "créditos": 6},
             {"materia": "Sistemas flexibles de Manufactura", "curso": "IIND", "clave": "55704", "créditos": 6},
         ],
@@ -400,5 +400,6 @@ def BD_IA():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
 
