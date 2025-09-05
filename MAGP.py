@@ -141,7 +141,7 @@ def MAGP():
         ],
         "Ciencia de Datos e Inteligencia Artificial":[
             {"materia": "Inteligencia Artificial*",  "curso": "ITI", "clave": "55701", "créditos": 6},
-            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 6},
+            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 7},
         ],
         "Fundamentos y Hospitalidad en la Salud":[
             {"materia": "Dirección de los negocios hospitalarios", "curso": "SLD", "clave": "55703", "créditos": 6},
@@ -406,4 +406,5 @@ def MAGP():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
