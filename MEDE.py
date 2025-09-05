@@ -131,7 +131,7 @@ def MEDE():
             {"materia": "Resolución de conflictos empresariales", "curso": "DER", "clave": "55705", "créditos": 6},
         ],
         "Ciencia de Datos e Inteligencia Artificial":[
-            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 6},
+            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 7},
             {"materia": "Ciencia de Datos", "curso": "ITI", "clave": "55700", "créditos": 7},
         ],
         "Análisis e Inteligencia de Negocios": [
@@ -398,4 +398,5 @@ def MEDE():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
