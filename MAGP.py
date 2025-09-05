@@ -136,8 +136,8 @@ def MAGP():
             {"materia": "Administración de riesgos de Negocio", "curso": "ADM", "clave": "55705", "créditos": 6},    
         ],
         "Ingeniería y Operaciones": [
-            {"materia": "Sistemas de gestión empresarial*", "curso": "IIND", "clave": "55703", "créditos": 7},
-            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 6},
+            {"materia": "Sistemas de gestión empresarial*", "curso": "IIND", "clave": "55703", "créditos": 6},
+            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 7},
         ],
         "Ciencia de Datos e Inteligencia Artificial":[
             {"materia": "Inteligencia Artificial*",  "curso": "ITI", "clave": "55701", "créditos": 6},
@@ -406,5 +406,6 @@ def MAGP():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
 
