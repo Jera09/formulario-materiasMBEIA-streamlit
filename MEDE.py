@@ -114,7 +114,7 @@ def MEDE():
             {"materia": "Lean Management*",  "curso": "IIND", "clave": "55707", "créditos": 7},
             {"materia": "Sistemas de gestión empresarial*", "curso": "IIND", "clave": "55703", "créditos": 6},
             {"materia": "Six sigma*", "curso": "IIND", "clave": "55705", "créditos": 6},
-            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 6},
+            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 7},
         ],
         "Talento Humano y Organizacional":[
             {"materia": "Compensación y evaluación del talento*", "curso": "PSI", "clave": "55700", "créditos": 6},
@@ -398,5 +398,6 @@ def MEDE():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
 
