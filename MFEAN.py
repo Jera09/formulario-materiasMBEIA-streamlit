@@ -140,7 +140,7 @@ def MFEAN():
         ],
         "Ciencia de Datos e Inteligencia Artificial":[
             {"materia": "Inteligencia Artificial*",  "curso": "ITI", "clave": "55701", "créditos": 6},
-            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 7},
+            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 6},
             {"materia": "Ciencia de Datos", "curso": "ITI", "clave": "55700", "créditos": 7},
         ],
 
@@ -396,5 +396,6 @@ def MFEAN():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
 
