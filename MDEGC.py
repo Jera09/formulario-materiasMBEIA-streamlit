@@ -146,7 +146,7 @@ def MDEGC():
         ],
         "Ciencia de Datos e Inteligencia Artificial":[
             {"materia": "Inteligencia Artificial*",  "curso": "ITI", "clave": "55701", "créditos": 6},
-            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 7},
+            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 6},
         ],
         "Fundamentos y Hospitalidad en la Salud":[
             {"materia": "Administración de centros de investigación Intrahospitalarios", "curso": "SLD", "clave": "55700", "créditos": 6},
@@ -415,6 +415,7 @@ def MDEGC():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
 
 
