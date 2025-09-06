@@ -91,7 +91,7 @@ def MIEDT():
         ],
         "Ciencia de Datos e Inteligencia Artificial":[
             {"materia": "Inteligencia Artificial*",  "curso": "ITI", "clave": "55701", "créditos": 6},
-            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 7},
+            {"materia": "Blockchain", "curso": "ITI", "clave": "55706", "créditos": 6},
             {"materia": "Ciencia de Datos", "curso": "ITI", "clave": "55700", "créditos": 7},
             {"materia": "Internet de las cosas", "curso": "ITI", "clave": "55702", "créditos": 6},
             {"materia": "Realidad virtual y aumentada", "curso": "ITI", "clave": "55705", "créditos": 6},
@@ -395,6 +395,7 @@ def MIEDT():
             file_name="Programa_Maestria.pdf",
             mime="application/pdf"
         )
+
 
 
 
