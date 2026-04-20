@@ -137,7 +137,7 @@ def MAGP():
         ],
         "Ingeniería y Operaciones": [
             {"materia": "Sistemas de gestión empresarial*", "curso": "IIND", "clave": "55703", "créditos": 6},
-            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55700", "créditos": 7},
+            {"materia": "Dirección de operaciones en Empresas", "curso": "IIND", "clave": "55706", "créditos": 7},
         ],
         "Ciencia de Datos e Inteligencia Artificial":[
             {"materia": "Inteligencia Artificial*",  "curso": "ITI", "clave": "55701", "créditos": 6},
