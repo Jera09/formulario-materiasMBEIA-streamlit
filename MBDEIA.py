@@ -219,6 +219,7 @@ def BD_IA():
         ##### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
         ##### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
         ##### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+        ##### - [En este enlace podrás consultar la planeación de las aperturas de materias](https://aperturas-de-materias.onrender.com)
         """)
         st.write("")
         st.write("")
