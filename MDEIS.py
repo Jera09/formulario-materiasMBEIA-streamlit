@@ -207,13 +207,14 @@ def MDEIS():
         st.write("")
         st.write("## Consideraciones para el llenado del formulario:")
         st.write(""" 
-        ##### - ***Debes seleccionar al menos 2 materias*** del área de Fundamentos y Hospitalidad en la Salud
-        ##### - Recuerda seleccionar un ***máximo*** de 9 materias (58 créditos)
-        ##### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Bioética, Internacionalización y Sustentabilidad de las organizaciones de salud) ya se encuentran ***precargadas*** (27 créditos)
-        ##### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
-        ##### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
-        ##### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
-        ##### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+        #### - ***Debes seleccionar al menos 2 materias*** del área de Fundamentos y Hospitalidad en la Salud
+        #### - Recuerda seleccionar un ***máximo*** de 9 materias (58 créditos)
+        #### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Bioética, Internacionalización y Sustentabilidad de las organizaciones de salud) ya se encuentran ***precargadas*** (27 créditos)
+        #### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
+        #### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://drive.google.com/file/d/1GNkweJmmwMd4CWEKf8KsGybZpb-3bnhJ/view?usp=sharing)
+        #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
+        #### - [En este enlace podrás consultar el contenido de cada materia](https://drive.google.com/file/d/1Er48k2mOYuBzQDmDGmzXNH-Y_byWd7tj/view?usp=sharing)
+        #### - [En este enlace podrás consultar la planeación de las aperturas de materias](https://aperturas-de-materias.onrender.com)
         """)
         st.write("")
         st.write("")
