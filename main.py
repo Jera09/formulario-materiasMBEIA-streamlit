@@ -1,4 +1,5 @@
 import streamlit as st
+import gc  # <-- IMPORTANTE: Librería nativa para controlar la memoria en Linux
 
 # Configuración inicial de la página (DEBE ser el primer comando de Streamlit)
 st.set_page_config(
@@ -7,22 +8,18 @@ st.set_page_config(
     page_icon="A.png"
 )
 
-# -----------------------------------------------------------------------------
-# OPTIMIZACIÓN DE MEMORIA Y IMAGEN (Evita choques en el disco de Render)
-# -----------------------------------------------------------------------------
+# Optimización: Cacheamos el logo para no colisionar lecturas en el disco de Render
 @st.cache_resource
 def cargar_logo():
-    # Cacheamos el recurso de imagen para que no choque en el disco
-    # al abrir múltiples navegadores simultáneamente.
     return "A.png"
 
 try:
     st.image(cargar_logo(), width=200)
 except Exception:
-    pass  # Si falta la imagen en el servidor, no detiene la aplicación
+    pass
 
 # -----------------------------------------------------------------------------
-# BARRA LATERAL Y NAVEGACIÓN (Corregido para multisesión segura)
+# BARRA LATERAL Y NAVEGACIÓN
 # -----------------------------------------------------------------------------
 with st.sidebar:
     st.selectbox(
@@ -40,14 +37,28 @@ with st.sidebar:
             "Administración y Gestión Pública", 
             "Dirección Estratégica de Instituciones de Salud"
         ],
-        key="menu"  # <-- Esto conecta de forma nativa y segura con st.session_state.menu
+        key="menu"  # Uso seguro del estado de sesión en Streamlit
     )
 
 # -----------------------------------------------------------------------------
-# ENRUTAMIENTO CON LAZY LOADING (Carga solo el módulo que se usa en el momento)
+# CONTROL DE TRANSICIÓN Y MEMORIA SEGURA (EL ESCUDO CONTRA EL ERROR 139)
 # -----------------------------------------------------------------------------
 menu_actual = st.session_state.menu
 
+# Detectamos si el usuario acaba de cambiar de página en su menú
+if "menu_anterior" not in st.session_state:
+    st.session_state.menu_anterior = menu_actual
+
+if st.session_state.menu_anterior != menu_actual:
+    # Si el usuario cambió de página (por ejemplo, regresó a 'Inicio'),
+    # actualizamos el estado e invocamos una recolección de basura suave y controlada.
+    # Esto evita que Linux mate el proceso C++ por colisiones entre varios navegadores.
+    st.session_state.menu_anterior = menu_actual
+    gc.collect()
+
+# -----------------------------------------------------------------------------
+# ENRUTAMIENTO CON LAZY LOADING (Carga solo el archivo que se va a usar)
+# -----------------------------------------------------------------------------
 if menu_actual == "Inicio":
     from Inicio import inicio 
     inicio()
