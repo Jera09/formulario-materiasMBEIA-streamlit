@@ -20,16 +20,6 @@ def BD_IA():
     if 'download_data' not in st.session_state:
         st.session_state.download_data = None
 
-    # Configuración inicial
-    #st.set_page_config(
-    #    page_title="Formulario de Registro de Materias",
-    #    layout="wide",
-    #    page_icon="A.png"
-    #)
-
-    #Logo (Agregar imagen de fondo)
-    #st.image("A.png", width=200)
-
     # Configuración Google Sheets
     def setup_gsheets():
         scope = [
