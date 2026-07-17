@@ -211,9 +211,9 @@ def mmyce():
         #### - Recuerda seleccionar un ***máximo*** de 8 materias (51 créditos)
         #### - Las materias obligatorias (Liderazgo de acción positiva, Planeación Estratégica de las organizaciones, Gestión estratégica de la comunicación, Análisis de mercado y toma de decisiones y Estrategias de mercadotecnia) ya se encuentran ***precargadas*** (33 créditos)
         #### - Materias que en su contenido abonan para examen de certificación, tendrán un * al lado de su nombre
-        #### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://redanahuac-my.sharepoint.com/:b:/g/personal/jesus_ramosb_anahuac_mx/IQC9PF0unItgQ6AwyAgDqAyUAejCzLSrftbUi4T9-QRR9tw?e=VqzwEU)
+        #### - [En este enlace podrás consultar las certificaciones a las que abonan las materias](https://redanahuac-my.sharepoint.com/:b:/g/personal/jesus_ramosb_anahuac_mx/IQC25ZDE1oCWTbEYB_uf_T2tAdM1emW-IFHy1wmn7sLsiBs?e=q5VtXp)
         #### - Al presionar el botón de Enviar Registro, ***por favor espera un poco***, aparecerá un botón para descargar tu formulario en PDF para su consulta
-        #### - [En este enlace podrás consultar información relevante de cada materia](https://redanahuac.sharepoint.com/:b:/r/sites/PosgradoseInvestigacin/Documentos%20compartidos/Fichas%20informativas%20de%20materias/A%CC%81reas%20de%20conocimiento.pdf?csf=1&web=1&e=v5RFlx)
+        #### - [En este enlace podrás consultar información relevante de cada materia](https://redanahuac-my.sharepoint.com/:b:/g/personal/jesus_ramosb_anahuac_mx/IQBmXnQtdPk4S5wm-Zt2RBO7AdkZ4O9B9TEKCDl7xfrawVw?e=6heZPQ)
         #### - [En este enlace podrás consultar la planeación de las aperturas de materias](https://aperturas-de-materias.onrender.com)
         """)
         st.write("")
